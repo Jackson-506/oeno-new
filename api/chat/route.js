@@ -19,5 +19,11 @@ export default async function handler(req) {
     messages,
   });
 
-  return new Response(JSON.stringify({ response: completion.choices[0].message.content }));
+  return new Response(
+    JSON.stringify({ response: completion.choices[0].message.content }),
+    {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    }
+  );
 }
